@@ -1,0 +1,13 @@
+drop database if exists injection; 
+create database injection;
+use injection;
+drop table if exists comments;
+drop table if exists users;
+drop table if exists data;
+create table users (id int auto_increment primary key, user varchar(50), password varchar(50), level int);
+create table data (id int auto_increment primary key, title varchar(50), content mediumtext, date timestamp);
+create table comments(id int auto_increment primary key, fkpage int, comment tinytext,date timestamp,fkuser int);
+insert into users (id,user,password,level) values ('1','test','abcd','0'),('2','admin','password','1');
+insert into data (id,title,content,date) values ('1','Page1','Hello world - this is page 1',now());
+insert into data (id,title,content,date) values ('2','Page2','Hello world - this is page 2',now());
+insert into data (id,title,content,date) values ('3','Page3','Hello world - this is page 3',now());
